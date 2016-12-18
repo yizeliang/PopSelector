@@ -1,22 +1,26 @@
-# PopSelector
-从下部弹出的选择框,修改头像最容易用到,拍照,选择图片
+package cn.yzl.popselector;
 
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
-## 1 效果图
-![image](https://github.com/yizeliang/PopSelector/raw/master/img/1.png)
+import cn.yzl.popselector.library.SelectPopOnSelectListener;
+import cn.yzl.popselector.library.SelectPopWindow;
 
-![image](https://github.com/yizeliang/PopSelector/raw/master/img/2.png)
+public class MainActivity extends AppCompatActivity {
 
-![image](https://github.com/yizeliang/PopSelector/raw/master/img/3.png)
+    private Button button, button1, button2, button3;
 
-![image](https://github.com/yizeliang/PopSelector/raw/master/img/4.png)
-
-## 2 使用
-
-对应1 中的 效果
-
-```java
-			//仿IOS 透明效果
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        button = (Button) findViewById(R.id.but);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 SelectPopWindow selectPopWindow = new SelectPopWindow(MainActivity.this,
                         new String[]{"item1", "条目2", "条目3"},
                         new SelectPopOnSelectListener() {
@@ -35,8 +39,16 @@
 
                 //取消按钮直接公布出来,能够随便设置属性
 //                selectPopWindow.getCancelBut();
+
                 selectPopWindow.show();
-				//不透明效果
+            }
+        });
+
+
+        button1 = (Button) findViewById(R.id.but1);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 SelectPopWindow selectPopWindow = new SelectPopWindow(MainActivity.this,
                         new String[]{"item1", "条目2", "条目3"}, new SelectPopOnSelectListener() {
                     @Override
@@ -48,7 +60,14 @@
                         SelectPopWindow.TYPE_NO_TRANSPARENT);
 
                 selectPopWindow.show();
-				//自定义布局,详细请看demo
+            }
+        });
+
+
+        button2 = (Button) findViewById(R.id.but2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 SelectPopWindow selectPopWindow = new SelectPopWindow(MainActivity.this,
                         new String[]{"看我可爱的分割线", "看我可爱的分割线", "看我可爱的分割线", "看我可爱的分割线"},
                         new SelectPopOnSelectListener() {
@@ -59,7 +78,7 @@
                         },
                         getWindow(),
                         R.layout.view_pop_select_pop_custom,
-                        R.layout.item_pop_selector_custom);
+                        R.layout.item_pop_selector_custom, null);
 
                 //如果我只想自定义一个布局怎么办呢,其他的一个传0就好了哦
 //                SelectPopWindow selectPopWindow = new SelectPopWindow(MainActivity.this,
@@ -74,9 +93,13 @@
 //                        0,
 //                        R.layout.item_pop_selector_custom);
                 selectPopWindow.show();
-                
-                
-				//很多条目的时候的状态
+            }
+        });
+
+        button3 = (Button) findViewById(R.id.but3);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 SelectPopWindow selectPopWindow = new SelectPopWindow(MainActivity.this,
                         new String[]{"条目1", "条目2", "条目3", "条目4", "条目5", "条目6", "条目7",
                                 "条目8", "可以上下滑动的哦", "条目10", "条目11", "条目12", "条目13", "条目14", "条目15",
@@ -91,24 +114,11 @@
                         SelectPopWindow.TYPE_IOS_TRANSPARENT);
 
                 selectPopWindow.show();
+            }
+        });
+    }
 
-```
-
-## 依赖
-
-```gradle
-
-//工程gradle
-allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
-//module
- dependencies {
-	        compile 'com.github.yizeliang:PopSelector:1.0'
-	}
-
-
-```
+    public void showToast(int msg) {
+        Toast.makeText(MainActivity.this, String.valueOf(msg), Toast.LENGTH_SHORT).show();
+    }
+}
