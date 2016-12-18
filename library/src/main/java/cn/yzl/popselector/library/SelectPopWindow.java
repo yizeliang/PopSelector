@@ -209,4 +209,12 @@ public class SelectPopWindow extends PopupWindow {
         return innerAdapter;
     }
 
+    /**
+     * 开放listview,主要用于设置分割间背景等属性
+     *
+     * @return
+     */
+    public InnerListView getInnerListView() {
+        return innerListView;
+    }
 }
