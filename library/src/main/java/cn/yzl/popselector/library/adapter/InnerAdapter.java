@@ -1,7 +1,6 @@
 package cn.yzl.popselector.library.adapter;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.LayoutRes;
 import android.view.LayoutInflater;
@@ -71,7 +70,7 @@ public class InnerAdapter extends BaseAdapter {
         ViewHoder viewHoder;
         int a=type;
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(type == SelectPopWindow.TYPE_CUSTOM ? customMenuLayout : R.layout.item_pop_selector, null);
+            convertView = LayoutInflater.from(context).inflate(type == SelectPopWindow.TYPE_CUSTOM ? customMenuLayout : R.layout.item_pop_selector_yzl_cn, null);
             viewHoder = new ViewHoder();
             viewHoder.textView = (TextView) convertView.findViewById(R.id.tv);
             convertView.setTag(viewHoder);

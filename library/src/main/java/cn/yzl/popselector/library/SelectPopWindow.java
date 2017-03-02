@@ -105,7 +105,7 @@ public class SelectPopWindow extends PopupWindow {
 
     private void initView() {
         view = LayoutInflater.from(context).inflate((type == TYPE_CUSTOM && customLayout != 0) ?
-                customLayout : R.layout.view_pop_select_pop, null);
+                customLayout : R.layout.view_pop_select_pop_yzl_cn, null);
 
         cancelBut = (TextView) view.findViewById(R.id.but_cancel);
 

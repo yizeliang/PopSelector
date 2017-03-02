@@ -1,6 +1,6 @@
 <resources>
     <style name="AnimBottom" parent="@android:style/Animation">
-        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
-        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in_popselector_yzl_cn</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out_popselector_yzl_cn</item>
     </style>
 </resources>
